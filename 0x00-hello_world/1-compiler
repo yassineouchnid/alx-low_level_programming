@@ -1,2 +1,10 @@
 #!/bin/bash
-gcc -c $CFILE
+
+# Get the C file name from the $CFILE environment variable
+CFILE=$CFILE
+
+# Set the output file name to be the same as the C file name, but with .o extension
+OUTPUT_FILE="${CFILE%.*}.o"
+
+# Compile the C file without linking
+gcc -c $CFILE -o $OUTPUT_FILE
